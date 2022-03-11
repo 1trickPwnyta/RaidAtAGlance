@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Raid at a Glance</name>
+	<author>1trickPwnyta</author>
+	<packageId>raidataglance.1trickPwnyta</packageId>
+	<supportedVersions>
+		<li>1.3</li>
+	</supportedVersions>
+	<description>
+Tired of reading through the raid letter to discern the important details, such as what kind of raid it is, how many raiders there are, whether they are attacking immediately, etc? Now you can see those details at a glance without even opening the letter!
+
+Each raid letter comes with several icons on top of the letter, depending on what type of raid it is. The first icon is the faction symbol, followed by the number of raiders. The icons that come after that (if any) indicate the following:
+- clock: preparing for a while (not attacking immediately)
+- arrows: approaching from multiple angles
+- brain: raiders are clever and will avoid traps/turrets
+- drop pod: raiders are dropping right on top of you!
+- four drop pods: pods went haywire and are landing all over the place
+- axe: breach/sapper raid
+- missile: siege
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+If you enjoy my work and want to support me and my family, I take donations at:
+https://ko-fi.com/1trickpwnyta
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	</description>
+	<url>https://github.com/1trickPwnyta/RaidAtAGlance</url>
+	<modDependencies>
+		<li>
+			<packageId>brrainz.harmony</packageId>
+			<displayName>Harmony</displayName>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+		</li>
+	</modDependencies>
+</ModMetaData>
