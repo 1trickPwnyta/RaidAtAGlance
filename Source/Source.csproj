@@ -63,6 +63,7 @@
     <Compile Include="PawnsArrivalModeDefOf.cs" />
     <Compile Include="RaidAtAGlanceMod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RaidAtAGlanceSettings.cs" />
     <Compile Include="RaidStrategyDefOf.cs" />
   </ItemGroup>
   <ItemGroup>

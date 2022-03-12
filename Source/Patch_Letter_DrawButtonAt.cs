@@ -10,7 +10,6 @@ namespace RaidAtAGlance
     [HarmonyPatch(nameof(Letter.DrawButtonAt))]
     public static class Patch_Letter_DrawButtonAt
     {
-        private const float ICON_SIZE = 20f;
         private const float ICON_SPACING = 2f;
         private const float LETTER_WIDTH = 38f;
         private const float LETTER_HEIGHT = 30f;
@@ -85,23 +84,45 @@ namespace RaidAtAGlance
                     rightX -= num5;
                 }
 
-                foreach (Texture2D icon in icons)
-                {
-                    GUI.DrawTexture(new Rect(rightX - ICON_SIZE, topY + LETTER_HEIGHT - ICON_SIZE / 2, ICON_SIZE, ICON_SIZE), icon);
-                    rightX -= ICON_SIZE + ICON_SPACING;
-                }
-
                 GameFont previousFont = Text.Font;
-                Text.Font = GameFont.Small;
+                Text.Font = GameFont.Tiny;
+                if (RaidAtAGlanceSettings.IconSize > 12)
+                {
+                    Text.Font = GameFont.Small;
+                }
+                if (RaidAtAGlanceSettings.IconSize > 24)
+                {
+                    Text.Font = GameFont.Medium;
+                }
                 string numberOfRaiders = "x" + info.pawns.Count;
                 Vector2 textSize = Text.CalcSize(numberOfRaiders);
+
+                float bgWidth = (RaidAtAGlanceSettings.IconSize + ICON_SPACING) * (icons.Count + 1) + (textSize.x + ICON_SPACING) + ICON_SPACING * 2;
+                float bgHeight = RaidAtAGlanceSettings.IconSize / 2 + ICON_SPACING;
+                GUI.DrawTexture(new Rect(rightX - bgWidth, topY + LETTER_HEIGHT, bgWidth, bgHeight), TexUI.GrayTextBG);
+                rightX -= ICON_SPACING;
+
+                foreach (Texture2D icon in icons)
+                {
+                    GUI.DrawTexture(new Rect(
+                        rightX - RaidAtAGlanceSettings.IconSize, 
+                        topY + LETTER_HEIGHT - RaidAtAGlanceSettings.IconSize / 2, 
+                        RaidAtAGlanceSettings.IconSize, 
+                        RaidAtAGlanceSettings.IconSize), icon);
+                    rightX -= RaidAtAGlanceSettings.IconSize + ICON_SPACING;
+                }
+
                 Widgets.Label(new Rect(rightX - textSize.x, topY + LETTER_HEIGHT - textSize.y / 2, textSize.x, textSize.y), numberOfRaiders);
                 rightX -= textSize.x + ICON_SPACING;
                 Text.Font = previousFont;
 
                 GUI.color = info.parms.faction.Color.ToTransparent(timeSinceArrival / 1f);
-                GUI.DrawTexture(new Rect(rightX - ICON_SIZE, topY + LETTER_HEIGHT - ICON_SIZE / 2, ICON_SIZE, ICON_SIZE), info.parms.faction.def.FactionIcon);
-                rightX -= ICON_SIZE + ICON_SPACING;
+                GUI.DrawTexture(new Rect(
+                    rightX - RaidAtAGlanceSettings.IconSize, 
+                    topY + LETTER_HEIGHT - RaidAtAGlanceSettings.IconSize / 2,
+                    RaidAtAGlanceSettings.IconSize, 
+                    RaidAtAGlanceSettings.IconSize), info.parms.faction.def.FactionIcon);
+                // Need to add this if we put anything else in front: rightX -= RaidAtAGlanceSettings.IconSize + ICON_SPACING;
             }
         }
     }
