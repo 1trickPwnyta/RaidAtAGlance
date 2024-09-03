@@ -21,8 +21,12 @@ Each raid letter comes with several icons on top of the letter, depending on wha
 - missile: siege
 
 === Updates ===
+09/03/2024: Set GUI color back to white after drawing (oops)
 03/21/2024: Updated to 1.5
 10/26/2022: Updated to 1.4
+
+=== Credits ===
+Mod icon: twitter.com/mouse_draws
 	</description>
 	<url>https://github.com/1trickPwnyta/RaidAtAGlance</url>
 	<modDependencies>

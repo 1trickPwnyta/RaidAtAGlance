@@ -1,5 +1,4 @@
 ﻿using HarmonyLib;
-using RimWorld;
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
@@ -83,6 +82,7 @@ namespace RaidAtAGlance
                     float num5 = num3 * (1f - num4 * num4);
                     rightX -= num5;
                 }
+                GUI.color = Color.white;
 
                 GameFont previousFont = Text.Font;
                 Text.Font = GameFont.Tiny;
@@ -122,6 +122,7 @@ namespace RaidAtAGlance
                     topY + LETTER_HEIGHT - RaidAtAGlanceSettings.IconSize / 2,
                     RaidAtAGlanceSettings.IconSize, 
                     RaidAtAGlanceSettings.IconSize), info.parms.faction.def.FactionIcon);
+                GUI.color = Color.white;
                 // Need to add this if we put anything else in front: rightX -= RaidAtAGlanceSettings.IconSize + ICON_SPACING;
             }
         }
